@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/20 19:28:17 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/20 20:22:18 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/02/20 20:51:47 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -56,6 +56,16 @@ let x = main()
 
 let main () : unit =
 	ft_print_alphabet ()
+
+
+let x = main()
+
+
+
+(* EX04 main test *)
+
+let main () : unit =
+	ft_print_comb ()
 
 
 let x = main()
