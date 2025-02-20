@@ -1,5 +1,5 @@
-*/*/*.cmx
-*/*/*.cmi
-*/*/*.o
-*/*/.nfs*
-*/*/a.out
+*.cmx
+*.cmi
+*.o
+.nfs*
+a.out
