@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/20 19:28:17 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/20 20:00:52 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/02/20 20:22:18 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -47,5 +47,15 @@ let main () : unit =
 	ft_power (3, 0);
 	print_endline("Test pour 0 5 :");
 	ft_power (0, 5)
+
+let x = main()
+
+
+
+(* EX03 main test *)
+
+let main () : unit =
+	ft_print_alphabet ()
+
 
 let x = main()
