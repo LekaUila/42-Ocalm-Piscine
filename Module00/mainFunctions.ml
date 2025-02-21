@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/20 19:28:17 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/21 14:32:28 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/02/21 15:01:35 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -103,7 +103,7 @@ let main () : unit =
   else
     print_endline "    false";
 	print_endline "  with is_not_digit :";
-	if ft_string_all is_not_digit "Hello world !" then
+  if ft_string_all is_not_digit "Hello world !" then
     print_endline "    true"
   else
     (print_endline "    false");
@@ -131,5 +131,48 @@ let main () : unit =
     print_endline "    true"
   else
     (print_endline "    false")
+
+let x = main()
+
+
+
+  (* EX07 main test *)
+
+let main () : unit =
+	print_endline "Test pour \"radar\" :";
+	if ft_ispalindrome "radar" then
+		print_endline "    true"
+	else
+		print_endline "    false";
+	
+	print_endline "Test pour \"madam\" :";
+	if ft_ispalindrome "madam" then
+		print_endline "    true"
+	else
+		print_endline "    false";
+
+	print_endline "Test pour \"car\" :";
+	if ft_ispalindrome "car" then
+		print_endline "    true"
+	else
+		print_endline "    false";
+
+	print_endline "Test pour \"\" :";
+	if ft_ispalindrome "" then
+		print_endline "    true"
+	else
+		print_endline "    false";
+
+	print_endline "Test pour \"lool\" :";
+	if ft_ispalindrome "lool" then
+		print_endline "    true"
+	else
+		print_endline "    false";
+
+	print_endline "Test pour \"loul\" :";
+	if ft_ispalindrome "loul" then
+		print_endline "    true"
+	else
+		print_endline "    false"
 
 let x = main()
