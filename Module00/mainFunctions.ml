@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/20 19:28:17 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/21 15:01:35 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/02/21 15:41:45 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -174,5 +174,28 @@ let main () : unit =
 		print_endline "    true"
 	else
 		print_endline "    false"
+
+let x = main()
+
+
+
+
+(* EX08 main test *)
+
+let main () : unit =
+	print_endline "Test pour 1 \"abcdefghijklmnopqrstuvwxyz\" :";
+	print_endline (ft_rot_n 1 "abcdefghijklmnopqrstuvwxyz" );
+	print_endline "Test pour 13 \"abcdefghijklmnopqrstuvwxyz\" :";
+	print_endline (ft_rot_n 13 "abcdefghijklmnopqrstuvwxyz" );
+	print_endline "Test pour 42 \"0123456789\" :";
+	print_endline (ft_rot_n 42 "0123456789" );
+	print_endline "Test pour 2 \"0123456789\" :";
+	print_endline (ft_rot_n 2 "0123456789" );
+	print_endline "Test pour 0 \"Dammed!\" :";
+	print_endline (ft_rot_n 0 "Dammed !" );
+	print_endline "Test pour 42 \"\" :";
+	print_endline (ft_rot_n 42 "" );
+	print_endline "Test pour 1 \"NBzlk qnbjr !\" :";
+	print_endline (ft_rot_n 1 "NBzlk qnbjr !") 
 
 let x = main()
