@@ -3,16 +3,16 @@
 (*                                                        :::      ::::::::   *)
 (*   ft_power.ml                                        :+:      :+:    :+:   *)
 (*                                                    +:+ +:+         +:+     *)
-(*   By: lflandri <lflandri@student.42.fr>          +#+  +:+       +#+        *)
+(*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/20 18:43:55 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/20 19:03:00 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/02/21 13:34:31 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
-let rec ft_power (nb, pow : int * int) : int =
+let rec ft_power nb pow :int = 
   match pow with
   0 -> 1
   | 1 -> nb
-  | e -> nb * ft_power(nb, e - 1)
+  | e -> nb * ft_power nb (e - 1)
 
