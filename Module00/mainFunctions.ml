@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/20 19:28:17 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/21 15:41:45 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/02/21 16:10:07 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -197,5 +197,15 @@ let main () : unit =
 	print_endline (ft_rot_n 42 "" );
 	print_endline "Test pour 1 \"NBzlk qnbjr !\" :";
 	print_endline (ft_rot_n 1 "NBzlk qnbjr !") 
+
+let x = main()
+
+
+(* EX09 main test *)
+
+
+let main () : unit =
+	ft_print_comb2 ()
+
 
 let x = main()
