@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/20 19:28:17 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/21 13:58:31 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/02/21 14:32:28 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -84,5 +84,52 @@ let main () : unit =
 	ft_print_rev("");
 	print_endline("Test pour \"24\" :");
 	ft_print_rev("24")
+
+let x = main()
+
+
+
+(* EX06 main test *)
+
+let is_digit c = c >= '0' && c <= '9'
+let is_not_digit c = c < '0' || c > '9'
+
+
+let main () : unit =
+	print_endline "Test pour \"Hello world !\" :";
+	print_endline "  with is_digit :";
+	if ft_string_all is_digit "Hello world !" then
+    print_endline "    true"
+  else
+    print_endline "    false";
+	print_endline "  with is_not_digit :";
+	if ft_string_all is_not_digit "Hello world !" then
+    print_endline "    true"
+  else
+    (print_endline "    false");
+  print_newline ();
+  print_endline "Test pour \"\" :";
+  print_endline "  with is_digit :";
+  if ft_string_all is_digit "" then
+    print_endline "    true"
+  else
+    print_endline "    false";
+  print_endline "  with is_not_digit :";
+  if ft_string_all is_not_digit "" then
+    print_endline "    true"
+  else
+    (print_endline "    false");
+    print_newline ();
+  print_endline "Test pour \"42\" :";
+  print_endline "  with is_digit :";
+  if ft_string_all is_digit "42" then
+    print_endline "    true"
+  else
+    print_endline "    false";
+  print_endline "  with is_not_digit :";
+  if ft_string_all is_not_digit "42" then
+    print_endline "    true"
+  else
+    (print_endline "    false")
 
 let x = main()
