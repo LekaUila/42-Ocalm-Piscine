@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/03/07 12:09:09 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/03/07 12:28:02 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/03/07 12:38:30 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -42,7 +42,12 @@ let main () : unit =
   print_newline ();
   print_endline("Test pour F 4:");
   print_int (hfs_f 4);
+  print_newline ();
+  print_endline("Test pour M -1:");
+  print_int (hfs_m (-1));
+  print_newline ();
+  print_endline("Test pour F -1:");
+  print_int (hfs_f (-1));
   print_newline ()
-
 
 let x = main()
