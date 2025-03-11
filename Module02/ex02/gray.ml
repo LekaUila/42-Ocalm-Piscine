@@ -6,18 +6,34 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/03/11 14:34:11 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/03/11 15:26:56 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/03/11 16:53:28 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
-let rec print_list_char list =
-  match list with
-  | [] -> print_char ' '; list
-  | hd :: tl ->
-    print_list_char tl;
-    print_char hd;
+
+let print_list_char_with_ret list =
+  let rec print_list_char_intern list =
+    match list with
+    | [] -> ()
+    | hd :: tl ->
+      print_list_char_intern tl;
+      print_char hd
+  in
+    print_list_char_intern list;
+    print_char ' ';
     list
 
+let print_list_char list =
+  let rec print_list_char_intern list =
+    match list with
+    | [] -> ()
+    | hd :: tl ->
+      print_list_char_intern tl;
+      print_char hd
+  in
+    print_list_char_intern list;
+    print_char ' '
+    
 
 let gray  n =
   if n = 0 then
@@ -46,23 +62,35 @@ let gray  n =
         in
           let rec gray_intern n list =
             match n with
-            | 1 -> print_list_char (inverse_elt_n_of_list 0 list)
+            | 1 -> print_list_char_with_ret (inverse_elt_n_of_list 0 list)
             | x ->
               gray_intern (n - 1)
-                (print_list_char
+                (print_list_char_with_ret
                     (inverse_elt_n_of_list (n - 1)
                       (gray_intern (n - 1) list)
                     )
                 )
             in
-              print_list_char base;
-              gray_intern n base;
-              print_char '\n'
+              let rec gray_intern_last n list =
+                match n with
+                | 1 -> print_list_char (inverse_elt_n_of_list 0 list)
+                | x ->
+                  gray_intern_last (n - 1)
+                    (print_list_char_with_ret
+                        (inverse_elt_n_of_list (n - 1)
+                          (gray_intern (n - 1) list)
+                        )
+                    )
+                in
+                  print_list_char base;
+                  gray_intern_last n base;
+                  print_char '\n'
 
 
 
 
 let main () : unit =
+  gray 0;
   gray 1;
   gray 2;
   gray 3;
