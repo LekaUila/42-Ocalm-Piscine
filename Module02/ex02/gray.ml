@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/03/11 14:34:11 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/03/11 16:53:28 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/03/11 16:57:15 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -36,7 +36,7 @@ let print_list_char list =
     
 
 let gray  n =
-  if n = 0 then
+  if n < 1 then
     ()
   else
     let rec create_list_of_0_char n =
@@ -90,6 +90,7 @@ let gray  n =
 
 
 let main () : unit =
+  gray (-1);
   gray 0;
   gray 1;
   gray 2;

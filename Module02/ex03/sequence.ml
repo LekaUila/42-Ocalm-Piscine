@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/03/11 15:29:56 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/03/11 16:35:01 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/03/11 16:57:07 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -76,6 +76,7 @@ let sequence n  =
 
 
 let main () : unit =
+  print_string ((sequence (-1)) ^ "\n") ;
   print_string ((sequence 0) ^ "\n") ;
   print_string ((sequence 1) ^ "\n") ;
   print_string ((sequence 2) ^ "\n") ;
