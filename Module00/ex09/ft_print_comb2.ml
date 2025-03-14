@@ -3,10 +3,10 @@
 (*                                                        :::      ::::::::   *)
 (*   ft_print_comb2.ml                                  :+:      :+:    :+:   *)
 (*                                                    +:+ +:+         +:+     *)
-(*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
+(*   By: lflandri <lflandri@student.42.fr>          +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/21 15:51:44 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/21 16:09:50 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/03/14 16:37:44 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -22,7 +22,7 @@ let rec ft_print_comb_of_second_number nb1 nb2 : unit =
     ft_print_number_correct(nb1);
     print_char(' ');
     ft_print_number_correct(nb2);
-    if nb1 = 7 then
+    if nb1 = 98 then
       print_string("\n")
     else
       print_string(", ");
@@ -41,4 +41,5 @@ match nb1 with
   ft_print_comb_of_first_number (nb1 + 1) (nb2 + 1)
 
 let ft_print_comb2 () : unit = ft_print_comb_of_first_number 0 1
+
 

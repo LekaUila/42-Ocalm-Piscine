@@ -3,10 +3,10 @@
 (*                                                        :::      ::::::::   *)
 (*   ft_rot_n.ml                                        :+:      :+:    :+:   *)
 (*                                                    +:+ +:+         +:+     *)
-(*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
+(*   By: lflandri <lflandri@student.42.fr>          +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/21 15:02:37 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/21 15:41:31 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/03/14 16:38:44 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -25,4 +25,3 @@ let rec ft_rot_n n str : string =
           else
             c)
         str)
-
