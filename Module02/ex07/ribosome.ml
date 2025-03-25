@@ -6,11 +6,11 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/03/14 12:32:33 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/03/17 14:39:18 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/03/25 17:12:03 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
-open Random
+include Random
 
 type phostate = string
 type deoxyribose = string
