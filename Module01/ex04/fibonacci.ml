@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/02/27 13:30:37 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/02/27 14:18:56 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/06/05 14:07:48 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -14,7 +14,7 @@ let rec fibonacci n =
   if n < 0 then
     -1
   else
-    begin
+    (
       let rec fib_intern n e1 e2 =
         if n = 0 then
           e1
@@ -22,7 +22,7 @@ let rec fibonacci n =
           fib_intern (n - 1) e2 (e2 + e1)
     in
       fib_intern n 0 1
-    end
+    )
          
 
 
