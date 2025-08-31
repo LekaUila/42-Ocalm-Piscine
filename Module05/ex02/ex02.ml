@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/08/29 16:57:08 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/08/29 18:51:15 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/08/31 15:08:48 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -16,26 +16,19 @@ end
 
 module type VAL = sig val x : int end
 
-(* module MAKEPROJECTION = functor (P : Pair) -> sig val x : int end *)
+module type MAKEPROJECTION = functor (P : PAIR) -> VAL
 
-(* module type X = sig
-  val x : int
-end
-
-module IncX = functor (M : X) -> struct
-  let x = M.x + 1
-end *)
-
-module MakeFst = functor (P : PAIR) -> struct
-  let (a , b) = P 
-(* in let x = a *)
+module MakeFst : MAKEPROJECTION = functor (P : PAIR) -> struct
+  let x = 
+  match P.pair with
+  | (a , b) -> a
 end
 
 
-module MakeSnd = functor (P : PAIR) -> struct
-  let x = P
-    (* match P with
-    | x , y -> y *)
+module MakeSnd :MAKEPROJECTION = functor (P : PAIR) -> struct
+  let x = 
+  match P.pair with
+  | (a , b) -> b
 end
 
 
