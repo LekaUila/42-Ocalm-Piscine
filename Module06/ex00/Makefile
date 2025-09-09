@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 15:06:49 by lflandri          #+#    #+#              #
-#    Updated: 2025/09/01 15:38:20 by lflandri         ###   ########.fr        #
+#    Updated: 2025/09/09 10:46:50 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,9 @@
 # **************************************************************************** #
 
 
-
-
-SRC		= 	main.ml \
-			people.ml
+			
+SRC		= 	people.ml \
+			main.ml 
 		  
 TODELETE = 	main.cmi \
 			main.cmx \
@@ -69,9 +68,6 @@ RESET		=\\e[25m
 
 all :		${NAME}
 # 			@echo "${WHITEGREEN}PROGRAMME \"${BLINK}${NAME}${RESET}\" PRET POUR EXECUTION !${NEUTRE}"
-
-${NAMEL}:
-			@cd libft && make
 
 ${NAME}: 
 			@echo "${BLACKPURPLE}=============== CRÉATION ==============${WHITE}" 
