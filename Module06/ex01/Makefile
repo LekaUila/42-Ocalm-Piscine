@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 15:06:49 by lflandri          #+#    #+#              #
-#    Updated: 2025/09/09 12:11:55 by lflandri         ###   ########.fr        #
+#    Updated: 2025/09/09 12:13:34 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ TODELETE = 	main.cmi \
 
 
 
-NAME 		= ex00
+NAME 		= ex01
 
 
 MAKEFLAGS	= --no-print-directory
