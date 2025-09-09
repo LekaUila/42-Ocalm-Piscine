@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 15:06:49 by lflandri          #+#    #+#              #
-#    Updated: 2025/09/09 11:11:21 by lflandri         ###   ########.fr        #
+#    Updated: 2025/09/09 12:11:55 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ TODELETE = 	main.cmi \
 			people.cmi \
 			people.cmx \
 			people.o \
+			doctor.cmi \
+			doctor.cmx \
+			doctor.o \
 
 
 
