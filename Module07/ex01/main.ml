@@ -6,7 +6,7 @@
 (*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/09/10 14:39:34 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/09/15 16:35:14 by Leka Uïla        ###   ########.fr       *)
+(*   Updated: 2025/09/15 16:39:29 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -51,7 +51,6 @@ let main () =
   let glouglou = new water in
   let ca_2 = new carbon_dioxide in
   let ca_1 = new carbon_monoxide in
-  let glouglou = new water in
   let tnt = new trinitroluene in
   let o2 = new dioxygen in
     print_endline glouglou#to_string;
