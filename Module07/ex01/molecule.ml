@@ -6,7 +6,7 @@
 (*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/09/15 14:14:44 by Leka Uïla         #+#    #+#             *)
-(*   Updated: 2025/09/15 16:31:51 by Leka Uïla        ###   ########.fr       *)
+(*   Updated: 2025/09/15 16:37:49 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -47,7 +47,7 @@ let hillNotation (al: atom list) =
 
 
 
-class molecule (n: string) (al: atom list) =
+class virtual molecule (n: string) (al: atom list) =
   object (self)
   val atom_list = (hillNotation al)
   method name = n
