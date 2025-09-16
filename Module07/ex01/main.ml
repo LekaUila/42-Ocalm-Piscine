@@ -6,7 +6,7 @@
 (*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/09/10 14:39:34 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/09/15 16:39:29 by Leka Uïla        ###   ########.fr       *)
+(*   Updated: 2025/09/16 14:08:59 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -52,12 +52,15 @@ let main () =
   let ca_2 = new carbon_dioxide in
   let ca_1 = new carbon_monoxide in
   let tnt = new trinitroluene in
+  let tnt2 = new trinitroluene in
   let o2 = new dioxygen in
     print_endline glouglou#to_string;
     print_endline ca_2#to_string;
     print_endline ca_1#to_string;
     print_endline tnt#to_string;
-    print_endline o2#to_string
+    print_endline o2#to_string;
+    print_endline (if tnt#equals o2 then "true" else "false");
+    print_endline (if tnt#equals tnt2 then "true" else "false")
 
    
 

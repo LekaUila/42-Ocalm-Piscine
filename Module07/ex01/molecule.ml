@@ -6,7 +6,7 @@
 (*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/09/15 14:14:44 by Leka Uïla         #+#    #+#             *)
-(*   Updated: 2025/09/15 16:37:49 by Leka Uïla        ###   ########.fr       *)
+(*   Updated: 2025/09/16 14:07:49 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -69,5 +69,5 @@ class virtual molecule (n: string) (al: atom list) =
       | [] -> "ERROR_FORMULA"
     in launchCalcul atom_list
   method to_string = "class molecule : (name=" ^ self#name ^ ", formula=" ^ self#formula ^ ")"
-  method equals (other: molecule) = (self#name == other#name && self#formula == other#formula)   
+  method equals (other: molecule) = (String.compare self#name other#name == 0 && 0 == String.compare self#formula other#formula)   
   end
