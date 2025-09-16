@@ -6,7 +6,7 @@
 #    By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 15:06:49 by lflandri          #+#    #+#              #
-#    Updated: 2025/09/16 15:59:18 by Leka Uïla        ###   ########.fr        #
+#    Updated: 2025/09/16 16:03:29 by Leka Uïla        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ TODELETE = 	main.cmi \
 			octane.cmi \
 			octane.cmx \
 			octane.o \
-			reaction.0 \
+			reaction.o \
 			reaction.cmx \
 			reaction.cmi \
 
