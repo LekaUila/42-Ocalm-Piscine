@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/10/17 11:40:13 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/10/17 16:24:19 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/10/31 12:54:45 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -16,13 +16,13 @@ include Reaction
 
 let checkListMolecule (starlist: (molecule * int) list) (endlist: (molecule * int) list) =
   let isEndMole (m: molecule) =
-    print_endline m#name;
+    (* print_endline m#name; *)
     if String.compare m#name "Carbon Dioxide" == 0 || String.compare m#name "Water" == 0
       then true
       else false
   in
   let isStartMole (m: molecule) =
-    print_endline m#name;
+    (* print_endline m#name; *)
       match m with
       | (a: Alkane.alkane) -> true
       | e -> if String.compare m#name "Dioxygen" == 0

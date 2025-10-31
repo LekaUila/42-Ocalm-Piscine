@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/09/10 14:39:34 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/10/17 16:25:42 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/10/31 13:07:55 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -89,19 +89,19 @@ let main () =
   let alkaneComb1 = new alkane_combustion (((new alkane 1) , 2) :: ([(new dioxygen , 5)])) ((new carbon_dioxide , 3) :: ([(new water , 5)])) in
   let alkaneComb2 = new alkane_combustion (((new alkane 1) , 1) :: ([(new dioxygen , 2)])) ((new carbon_dioxide , 1) :: ([(new water , 2)])) in
   let alkaneComb3 = new alkane_combustion (((new alkane 1) , 1) :: ([(new dioxygen , 2)])) ((new carbon_monoxide , 1) :: ([(new water , 2)])) in
-  print_endline "test alkaneComb1 :";
+  print_endline "test alkaneComb1 is_balanced :";
   if alkaneComb1#is_balanced
     then print_endline "balanced alkane combustion"
     else print_endline "unbalanced alkane combustion";
-  print_endline "test alkaneComb2 :";
+  print_endline "test alkaneComb1 get_start :";
+  let checktext1 = try alkaneComb1#get_start; () with e -> print_endline (Printexc.to_string e) in
+  print_endline "test alkaneComb2 is_balanced :";
   if alkaneComb2#is_balanced
     then print_endline "balanced alkane combustion"
     else print_endline "unbalanced alkane combustion";
-  (* print_endline "test alkaneComb3 :";
-  if alkaneComb3#is_balanced
+  print_endline "test alkaneComb3 :";
+  if alkaneComb1#is_balanced
     then print_endline "balanced alkane combustion"
-    else print_endline "unbalanced alkane combustion" *)
-  
-  (* try alkaneComb1#get_start with e -> print_endline (Printexc.to_string e) *)
+    else print_endline "unbalanced alkane combustion"
 
 let () = main ()

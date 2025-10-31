@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+         #
+#    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 15:06:49 by lflandri          #+#    #+#              #
-#    Updated: 2025/09/16 16:03:29 by Leka Uïla        ###   ########.fr        #
+#    Updated: 2025/10/31 12:47:54 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,7 @@ TODELETE = 	main.cmi \
 
 
 
-NAME 		= ex02
+NAME 		= ex03
 
 
 MAKEFLAGS	= --no-print-directory
