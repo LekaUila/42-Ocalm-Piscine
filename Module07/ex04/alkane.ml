@@ -6,7 +6,7 @@
 (*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/09/15 17:16:25 by Leka Uïla         #+#    #+#             *)
-(*   Updated: 2025/09/16 14:36:21 by Leka Uïla        ###   ########.fr       *)
+(*   Updated: 2025/11/07 17:10:34 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -15,9 +15,11 @@ include Carbon
 include Hydrogen
 include Molecule
 
+exception AkaneError of string
+
 let getNameAlkane n =
   match n with
-  | 0 -> "dihydrogen"
+  | 0 -> raise (AkaneError "Dihydrogen is not an Alkane")
   | 1 -> "méthane"
   | 2 -> "éthane"
   | 3 -> "proane"

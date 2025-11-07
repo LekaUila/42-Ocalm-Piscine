@@ -3,29 +3,65 @@
 (*                                                        :::      ::::::::   *)
 (*   alkane_combustion.ml                               :+:      :+:    :+:   *)
 (*                                                    +:+ +:+         +:+     *)
-(*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
+(*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/10/17 11:40:13 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/10/31 12:54:45 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/11/07 17:08:52 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
 include Reaction
+include Carbon
+include Hydrogen
+include Dioxygen
+include Carbon_dioxide
+include Water
 
+  let rec printlist list =
+      match list with
+      | [] -> true
+      | hd :: tl -> match hd with
+        | molec, mult -> print_int mult;
+                         print_string molec#formula;
+                         print_char ' ';
+                         printlist tl
 
+let getNameAlkane n =
+  match n with
+  | 1 -> "méthane"
+  | 2 -> "éthane"
+  | 3 -> "proane"
+  | 4 -> "butane"
+  | 5 -> "pentane"
+  | 6 -> "hexane"
+  | 7 -> "heptane"
+  | 8 -> "octane"
+  | 9 -> "nonane"
+  | 10 -> "décane"
+  | 11 -> "undéane"
+  | 12 -> "dodécanane"
+  | i -> "no-named alkane"
+
+let isMoleculeAnAlkane (m: molecule) =
+  let rec tryAll m nb =
+    if nb == 13
+      then false
+  else if String.compare m#name (getNameAlkane nb) == 0
+        then true
+      else tryAll m (nb + 1)
+  in
+  tryAll m 1
 
 let checkListMolecule (starlist: (molecule * int) list) (endlist: (molecule * int) list) =
   let isEndMole (m: molecule) =
-    (* print_endline m#name; *)
     if String.compare m#name "Carbon Dioxide" == 0 || String.compare m#name "Water" == 0
       then true
       else false
   in
   let isStartMole (m: molecule) =
-    (* print_endline m#name; *)
-      match m with
-      | (a: Alkane.alkane) -> true
-      | e -> if String.compare m#name "Dioxygen" == 0
+      if isMoleculeAnAlkane m
+        then true
+    else if String.compare m#name "Dioxygen" == 0
             then true
             else false
   in
@@ -36,8 +72,34 @@ let checkListMolecule (starlist: (molecule * int) list) (endlist: (molecule * in
         | molec, mult -> f molec && checklist f tl
   in
   checklist isStartMole starlist && checklist isEndMole endlist
-      
     
+let checkListComponent (starlist: (molecule * int) list) (endlist: (molecule * int) list) =
+  let isEndMole (m: molecule) =
+    if String.compare m#name "Carbon Dioxide" == 0 
+      then (true, false)
+      else
+        if String.compare m#name "Water" == 0
+          then (false, true)
+          else (false, false)
+  in
+  let isStartMole (m: molecule) =
+     if isMoleculeAnAlkane m
+      then (true, false)
+      else if String.compare m#name "Dioxygen" == 0
+            then (false, true)
+            else (false, false)
+  in
+  let rec checklist f list result : (bool * bool) =
+      match list with
+      | [] -> result
+      | hd :: tl -> match hd with
+        | molec, mult -> match f molec with
+          | p1, p2 -> match result with
+            | p3, p4 -> checklist f tl (p1 || p3, p2 || p4)
+  in
+  match checklist isStartMole starlist (false, false) with
+  | p1, p2 -> match checklist isEndMole endlist (false, false) with
+              | p3, p4 -> p1 && p3 && p2 && p4
 
 class alkane_combustion (starlist: (molecule * int) list) (endlist: (molecule * int) list) =
   object (self)
@@ -51,7 +113,36 @@ class alkane_combustion (starlist: (molecule * int) list) (endlist: (molecule * 
                         then endlist
                         else raise (BalancedError "Alkane Combustion not balanced")
                         
-    method balance = new alkane_combustion starlist endlist
+    method balance = 
+        let rec getCarbAndHydroFromAlkane atomLst carb hydro =
+          match atomLst with
+          | [] -> (carb, hydro)
+          | hd :: tl -> if String.compare "carbon" hd#name == 0
+            then getCarbAndHydroFromAlkane tl (carb + 1) hydro
+            else getCarbAndHydroFromAlkane tl carb (hydro + 1)
+        in
+        let rec getAlkane starlist returnValue : (int * int *  (molecule * int) list) =
+          match starlist with
+          | [] -> returnValue
+          | hd :: tl -> match hd with
+            | molec, mult -> if not(isMoleculeAnAlkane molec)
+              then getAlkane tl returnValue
+              else let carb1, hydro1, lst = returnValue in
+              let carb2, hydro2 = getCarbAndHydroFromAlkane molec#getAtomList 0 0 in
+              let carb3, hydro3, lst3 = getAlkane tl (carb1 + carb2, hydro1 + hydro2, lst) in
+              if (hydro3 / 2) mod 2 == 0
+                then (carb3, hydro3, (molec, 1) :: lst3)
+                else if (hydro2 / 2) mod 2 == 0
+                  then (carb3, hydro3, (molec, 1) :: lst3)
+                  else (carb3 + carb2, hydro3 + hydro2, (molec, 2) :: lst3)
+      in
+        if checkListMolecule starlist endlist && checkListComponent starlist endlist
+          then
+          let carb, hydro, lst = getAlkane starlist (0, 0, []) in
+          new alkane_combustion ((new dioxygen, (carb * 2 + hydro / 2) / 2) :: lst) ((new carbon_dioxide, carb) :: [(new water, hydro / 2)])
+        else
+            raise (BadReaction "No way to balance this equation as an alkane combustion")
+        
     method is_balanced =
           if checkListMolecule starlist endlist
           then
@@ -95,7 +186,5 @@ class alkane_combustion (starlist: (molecule * int) list) (endlist: (molecule * 
                 else false
               else false
             else false
-
-
       else raise (BadReaction "unpossible molecule in reaction")
   end
