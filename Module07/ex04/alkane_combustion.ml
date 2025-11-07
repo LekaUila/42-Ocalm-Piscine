@@ -6,7 +6,7 @@
 (*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/10/17 11:40:13 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/11/07 17:08:52 by Leka Uïla        ###   ########.fr       *)
+(*   Updated: 2025/11/07 17:12:04 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -16,15 +16,6 @@ include Hydrogen
 include Dioxygen
 include Carbon_dioxide
 include Water
-
-  let rec printlist list =
-      match list with
-      | [] -> true
-      | hd :: tl -> match hd with
-        | molec, mult -> print_int mult;
-                         print_string molec#formula;
-                         print_char ' ';
-                         printlist tl
 
 let getNameAlkane n =
   match n with
