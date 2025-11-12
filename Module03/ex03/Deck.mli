@@ -56,7 +56,7 @@ module Deck :
         val isClub : t -> bool
     end
 
-    type t = Card.t list
+    type t 
     exception DeckError of string
     val newDeck : t
     val toStringList : t -> string

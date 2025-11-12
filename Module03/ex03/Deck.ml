@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/03/21 14:23:36 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/03/25 17:04:44 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/11/12 18:25:33 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -240,6 +240,7 @@ module Deck =
       match typ with
       | [] -> ""
       | hd :: tl -> (Card.toStringVerbose hd) ^ " " ^ toStringListVerbose tl
+
       
     let drawCard typ : (Card.t * t) =
       match typ with
