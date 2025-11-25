@@ -3,3 +3,4 @@
 *.o
 .nfs*
 a.out
+.vscode

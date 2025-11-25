@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/06/04 13:01:01 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/06/04 14:54:02 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/11/25 15:12:28 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -24,24 +24,29 @@ let set (l:'a ft_ref)(a:'a) : unit =
 let get l : 'a =
   l.content
 
-let main () : unit =
-  if Array.length Sys.argv > 1 then
-    let a = return  (Array.make 0 "") in 
-
-    let ic = open_in Sys.argv.(1) in
+let file_array a ic = 
+  let rec file_recu a ic =
     try
-      while true do
-        let line = input_line ic in
-        set a (Array.append (get a) (Array.make 1 line));
-      done
+      let line = input_line ic in
+      set a (Array.append (get a) (Array.make 1 line));
+      file_recu a ic
     with e ->
       close_in_noerr ic;
       if Array.length (get a) = 0 then
-        raise e
-      else
-        Random.self_init ();
-        print_string (Array.get (get a) (Random.int (Array.length (get a))));
-        print_char '\n'
+        (print_string "Error File while executing script : ";
+        raise e)
+  in
+      file_recu a ic
+
+
+let main () : unit =
+  if Array.length Sys.argv > 1 then
+    let a = return  (Array.make 0 "") in 
+    let ic = open_in Sys.argv.(1) in
+      file_array a ic;
+      Random.self_init ();
+      print_string (Array.get (get a) (Random.int (Array.length (get a))));
+      print_char '\n'
 
         
 
