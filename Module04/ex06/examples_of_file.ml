@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/06/05 11:55:03 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/06/05 13:40:57 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/11/25 15:39:45 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -76,8 +76,11 @@ let rec printArrayFloat a ind : unit =
 let printContentElt elt : unit =
   match elt with
   | a , s ->
+    print_char '[';
     printArrayFloat a 0;
+    print_string "] \"";
     print_string s;
+    print_char '"';
     print_char '\n'
 
 let rec printList l : unit =
