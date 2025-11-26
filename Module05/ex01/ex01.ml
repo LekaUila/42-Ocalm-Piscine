@@ -6,7 +6,7 @@
 (*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/08/29 11:30:36 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/08/29 16:43:44 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/11/26 16:39:48 by lflandri         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -16,7 +16,7 @@ include String
 module Newhash =
   struct
     type t = string
-    let equal t1 t2 = (t1 == t2)
+    let equal t1 t2 = (t1 = t2)
     let hash t = Hashtbl.hash t
   end
 
