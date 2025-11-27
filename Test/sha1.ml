@@ -3,17 +3,36 @@
 (*                                                        :::      ::::::::   *)
 (*   sha1.ml                                            :+:      :+:    :+:   *)
 (*                                                    +:+ +:+         +:+     *)
-(*   By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+        *)
+(*   By: Leka Uïla <liam.flandrinck.58@gmail.com    +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2025/08/29 12:16:32 by lflandri          #+#    #+#             *)
-(*   Updated: 2025/08/29 16:44:55 by lflandri         ###   ########.fr       *)
+(*   Updated: 2025/11/27 17:48:58 by Leka Uïla        ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
 (* https://www.youtube.com/watch?v=kmHojGMUn0Q *)
 (* continue at step 11 *)
 
+(*
+Step 1 : convert text into array of ascii code
+step 2 : convert to binary
+step 3 : make it 8 bits long by staking 0 in front
+step 4 : join all binary code et add a one at end
+step 5 : fill the end with zeo until lenght = 512 mod 448
+step 6 : take binary join lenth from step 3, convert lenth in binary
+step 7 : add zero in front of lenth converted in binary until lenth of binary = 64
+step 8 : append step 7 to end of step 5
+step 9 : break message into array of "chunks" of 512 char
+step 10 : break each chunk into a subarray of 16  32-bit list
+step 11 : extend each subarray by looping chunks and making bitwise operation on 32-bit list
+step 12 : initialise const
+step 13 : use bitwise and variables assignement to do some shit
+step 14 : convert variables into hexadecimal
+step 15 : join them
+*)
+
 let charToBinaryString c : (int list) = 
+  (*convert a char to a int list*)
   match c with
   | ' '  -> 0 :: (0 :: (1 :: (0 :: (0 :: (0 :: (0 :: [0]))))))
   | '!'  -> 0 :: (0 :: (1 :: (0 :: (0 :: (0 :: (0 :: [1]))))))
@@ -118,6 +137,7 @@ let rec concatList l1 l2 : 'a list =
   | hd :: tl -> hd :: concatList tl l2
 
 let rec stringToList s nb : (int list list) =
+  (*convert a string to a list of int list which represent a char*)
   if (String.length s) <= nb then
     []
   else
@@ -213,15 +233,20 @@ let rec printListListList (l:'a list) =
     print_char '\n';print_char '\n';
     printListListList tl
 
-let  x = printListListList
-          (splitBlockIntoBlockOf 32
-              (splitIntoBlockOf 512
-                    (concatList
-                        (concatList
-                            (concatListList (stringToList "42 test" 0))
-                            (createZeroList (findNbZeroToAdd "42 test" 0)))
-                        (concatList
-                            (createZeroList (64 - (lenList (intToBinary (String.length "42 test") []))))
-                            (intToBinary (String.length "42 test") [])))));      
+let parseStringForOperation (str : string) = 
+  (*call all necessary function to do step 1 to 10 and have
+  a converted list of chunk to do proper hash*)
+  splitBlockIntoBlockOf 32 (*step 10*)
+              (splitIntoBlockOf 512 (*step 9*)
+                    (concatList (*step 8*)
+                        (concatList (*step 5*)
+                            (concatListList (stringToList str 0)) (*step  1, 2, 3, 4*)
+                            (createZeroList (findNbZeroToAdd str 0))) (*step 5*)
+                        (concatList (*step 7*)
+                            (createZeroList (64 - (lenList (intToBinary (String.length str) [])))) (*step 7*)
+                            (intToBinary (String.length str) [])))) (*step 6*)
+
+
+let  x = printListListList (parseStringForOperation "42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test 42 test");      
         print_char '\n';print_char '\n'
 
