@@ -5,99 +5,43 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/01 15:06:49 by lflandri          #+#    #+#              #
-#    Updated: 2025/09/09 12:14:19 by lflandri         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/08 15:13:59 by lflandri          #+#    #+#              #
-#    Updated: 2024/04/08 15:18:03 by lflandri         ###   ########.fr        #
+#    Created: 2025/12/01 13:17:10 by lflandri          #+#    #+#              #
+#    Updated: 2025/12/01 14:08:00 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-			
-SRC		= 	people.ml \
+SRC = people.ml \
 			doctor.ml \
 			dalek.ml \
 			main.ml 
-		  
-TODELETE = 	main.cmi \
-			main.cmx \
-			main.o \
-			people.cmi \
-			people.cmx \
-			people.o \
-			doctor.cmi \
-			doctor.cmx \
-			doctor.o \
-			dalek.cmi \
-			dalek.cmx \
-			dalek.o \
+
+NAME = test
+
+OBJS = $(SRC:.ml=.cmx)
+
+TODELETE = $(OBJS) $(SRC:.ml=.o)  $(SRC:.ml=.cmi)
 
 
-NAME 		= ex02
+all: $(NAME)
+
+%.cmx: %.ml
+	ocamlopt -c $< ${<:.ml=.cmx}	
 
 
-MAKEFLAGS	= --no-print-directory
+$(NAME): $(OBJS)
+	ocamlopt -o $(NAME)  $(OBJS)
 
-#couleur
-BLACK		=\\e[0;30m
-GREY		=\\e[1;30m
-BLACKRED	=\\e[0;31m
-PINK		=\\e[1;31m
-BLACKGREEN	=\\e[0;32m
-WHITEGREEN	=\\e[1;32m
-ORANGE		=\\e[0;33m
-YELLOW		=\\e[1;33m
-BLACKBLUE	=\\e[0;34m
-WHITEBLUE	=\\e[1;34m
-BLACKPURPLE	=\\e[0;35m
-WHITEPURPLE	=\\e[;1;35m
-BLACKCYAN	=\\e[0;36m
-WHITECYAN	=\\e[1;36m
-WHITEGREY	=\\e[0;37m
-WHITE		=\\e[1;37m
-
-NEUTRE		= \\e[0;m
-
-#effect
-BLINK		=\\e[5m
-
-RESET		=\\e[25m
-
-all :		${NAME}
-# 			@echo "${WHITEGREEN}PROGRAMME \"${BLINK}${NAME}${RESET}\" PRET POUR EXECUTION !${NEUTRE}"
-
-${NAME}: 
-			@echo "${BLACKPURPLE}=============== CRÉATION ==============${WHITE}" 
-			ocamlopt ${SRC} -o ${NAME}
-			@echo "${BLACKPURPLE}============= FIN CRÉATION ============${NEUTRE}" 
-
-run	:		all
-			./${NAME}
+clean:
+	rm $(TODELETE)
 
 
-clean :
-			@echo -n "${BLACKRED}"
-			rm -f ${TODELETE}
-			@echo -n "${NEUTRE}"
+fclean: clean
+	rm -f $(NAME)
 
-fclean :	clean
-			@echo -n "${BLACKRED}"
-			rm -f ${NAME}
-			@echo -n "${NEUTRE}"
+run : all
+	./$(NAME)
+
+re : fclean all
 
 
-re :		fclean all
-
-
-
-.PHONY : all clean fclean re bonus

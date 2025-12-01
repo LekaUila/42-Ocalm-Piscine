@@ -6,14 +6,14 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/01 13:17:10 by lflandri          #+#    #+#              #
-#    Updated: 2025/12/01 14:06:48 by lflandri         ###   ########.fr        #
+#    Updated: 2025/12/01 14:04:15 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRC = people.ml main.ml
 
-NAME = ex00
+NAME = test
 
 OBJS = $(SRC:.ml=.cmx)
 
