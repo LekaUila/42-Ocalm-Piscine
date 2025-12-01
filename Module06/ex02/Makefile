@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/01 13:17:10 by lflandri          #+#    #+#              #
-#    Updated: 2025/12/01 14:08:00 by lflandri         ###   ########.fr        #
+#    Updated: 2025/12/01 14:10:58 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = people.ml \
 			dalek.ml \
 			main.ml 
 
-NAME = test
+NAME = ex02
 
 OBJS = $(SRC:.ml=.cmx)
 
